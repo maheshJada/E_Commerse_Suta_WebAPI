@@ -73,9 +73,19 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             }
 
         }
+        [HttpGet, Route("api/Products")]
+        public IEnumerable<products> ProductIDGreterZero()
+        {
+            return _sutaService.ProductIDGreterZero();
+        }
 
+        [HttpGet, Route("api/Products/ProductIdFound")]
+        public IEnumerable<products> ProductIdFound(int ID)
+        {
+            return _sutaService.ProductIdFound(ID);
+        }
 
-        [HttpGet, Route("api/products")]
+        [HttpPut, Route("api/ProductAdd")]
 
         public IEnumerable<Suta> productsBuy(products EnterValidData)
         {
@@ -101,8 +111,13 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
         //    return Enumerable.Empty<Suta>();
         //}
+        [HttpPost, Route("api/ProductComapare/:id")]
+        public IEnumerable<products> GetProducts(int ID)
+        {
+            return _sutaService.ProductDeatils(ID);
+        }
 
-        [HttpDelete, Route("api/products/:Id")]
+        [HttpDelete, Route("api/ProductsDelete/:Id")]
         public IEnumerable<Suta> DeleteProductBuy(int Id)
         {
             if (_sutaService.DeleteProductBuy(Id))
@@ -112,10 +127,6 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
             return Enumerable.Empty<Suta>();
         }
-         [HttpGet, Route("api/SutaData/ProductGreater")]
-        public IEnumerable<products> GetProducts(int ID)
-        {
-            return _sutaService.ProductDeatils(ID);
-        }
+       
     }
 }

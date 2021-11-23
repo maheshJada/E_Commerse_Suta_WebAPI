@@ -16,7 +16,12 @@ namespace SutawebAPI_Repository
         bool ForgotPassword(ForgotClass forgotClass);
         bool productsBuy(products _product);
         IEnumerable<products> ProductDeatils(int ID);
-       // bool ProductUpdate(products Product_details);
+        // bool ProductUpdate(products Product_details);
+        IEnumerable<products> ProductIDGreterZero();
+        IEnumerable<products> ProductIdFound(int Id);
+      //  IEnumerable<products> Category(int Id);
+
+
 
         bool DeleteProductBuy(int Id);  
     }
