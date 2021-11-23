@@ -19,9 +19,9 @@ namespace SutawebAPI_Repository
         // bool ProductUpdate(products Product_details);
         IEnumerable<products> ProductIDGreterZero();
         IEnumerable<products> ProductIdFound(int Id);
-      //  IEnumerable<products> Category(int Id);
+        IEnumerable<products> Category(int CategaryID);
 
-
+        
 
         bool DeleteProductBuy(int Id);  
     }

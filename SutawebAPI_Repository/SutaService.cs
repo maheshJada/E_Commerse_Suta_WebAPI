@@ -317,5 +317,35 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
+
+        public IEnumerable<products> Category(int CategaryID)
+        {
+            List<products> _GetSuta = new List<products>();
+
+            try
+            {
+                using (_command = new SqlCommand("select  * from Category where CategaryID ='" + CategaryID + "'   ", _connection))
+                {
+                    if (_connection.State == System.Data.ConnectionState.Closed)
+                        _connection.Open();
+
+                    SqlDataReader reader = _command.ExecuteReader();
+
+                    while (reader?.Read() ?? false)
+                        _GetSuta.Add(new products() { ProductName = reader.GetString(1), OriginalPrice = reader.GetInt32(2), OfferPrice = reader.GetInt32(3), CategaryID = reader.GetInt32(4), Image = reader.GetString(5), Quantity = reader.GetInt32(6) });
+                }
+            }
+            catch (Exception e1)
+            {
+                throw new SutaException(e1.Message);
+            }
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return _GetSuta;
+        }
     } 
 }

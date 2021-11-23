@@ -127,6 +127,13 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
             return Enumerable.Empty<Suta>();
         }
-       
+
+        [HttpPut, Route("api/category")]
+        public IEnumerable<products> Category(int CategaryID)
+        {
+            return _sutaService.Category(CategaryID);
+        }
+
+
     }
 }
