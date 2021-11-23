@@ -13,8 +13,11 @@ namespace SutawebAPI_Repository
         IEnumerable<Suta> GetSutaDetails();
         bool InsertCustomerDetails(Suta Cust_deatils);
         bool LoginCustomer(string Name, string Password);
-        bool productsBuy(products _product);
         bool ForgotPassword(ForgotClass forgotClass);
-        bool DeleteProductBuy(int ProductRating);  
+        bool productsBuy(products _product);
+        IEnumerable<products> ProductDeatils(int ID);
+       // bool ProductUpdate(products Product_details);
+
+        bool DeleteProductBuy(int Id);  
     }
 }

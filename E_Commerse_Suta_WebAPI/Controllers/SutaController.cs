@@ -23,8 +23,10 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         {
             return _sutaService.GetSutaDetails();
         }
+       
 
-        [HttpPost, Route("api/signup/InsertCustomerDetails")]
+
+        [HttpPost, Route("api/signup")]
 
         public IEnumerable<Suta> InsertCustomerDetails(Suta inserteddata)
         {
@@ -41,7 +43,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         //public bool Login()
 
 
-        [HttpPost, Route("api/login/LoginCustomer")]
+        [HttpPost, Route("api/login")]
 
         public bool LoginCustomer(string Name, string Password)
         {
@@ -57,7 +59,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         }
         //-----forgot
 
-        [HttpPatch, Route("api/Fogot/ForgotPassword")]
+        [HttpPatch, Route("api/ForgotPassword")]
 
         public bool ForgotttPassword(ForgotClass forgotClass)
         {
@@ -73,7 +75,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         }
 
 
-        [HttpGet, Route("api/products/productsBuy")]
+        [HttpGet, Route("api/products")]
 
         public IEnumerable<Suta> productsBuy(products EnterValidData)
         {
@@ -100,15 +102,20 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         //    return Enumerable.Empty<Suta>();
         //}
 
-        [HttpDelete, Route("api/products/DeleteProductBuy/{ProductRating}")]
-        public IEnumerable<Suta> DeleteProductBuy(int ProductRating)
+        [HttpDelete, Route("api/products/:Id")]
+        public IEnumerable<Suta> DeleteProductBuy(int Id)
         {
-            if (_sutaService.DeleteProductBuy(ProductRating))
+            if (_sutaService.DeleteProductBuy(Id))
             {
                 return _sutaService.GetSutaDetails();
             }
 
             return Enumerable.Empty<Suta>();
+        }
+         [HttpGet, Route("api/SutaData/ProductGreater")]
+        public IEnumerable<products> GetProducts(int ID)
+        {
+            return _sutaService.ProductDeatils(ID);
         }
     }
 }
