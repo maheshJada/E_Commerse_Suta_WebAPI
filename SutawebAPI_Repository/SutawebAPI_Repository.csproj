@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_Common.csproj" />
+    <ProjectReference Include="..\SutaWebAPI_Model\SutaWebAPI_Model.csproj" />
+  </ItemGroup>
+
+</Project>

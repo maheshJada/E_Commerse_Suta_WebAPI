@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_Common.csproj" />
+    <ProjectReference Include="..\SutaWebAPI_Model\SutaWebAPI_Model.csproj" />
+    <ProjectReference Include="..\SutawebAPI_Repository\SutawebAPI_Repository.csproj" />
+  </ItemGroup>
+
+</Project>
