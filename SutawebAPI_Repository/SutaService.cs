@@ -73,6 +73,9 @@ namespace SutawebAPI_Repository
             }
             return insert;
         }
+        //
+
+
         public bool LoginCustomer(string Name, string Password)
         {
             bool IsLogin = false;
@@ -107,7 +110,31 @@ namespace SutawebAPI_Repository
 
         //
 
+        public bool CatagoryInsert(products Categary_details)
+        {
+            bool insert = false;
+            try
+            {
+                using (_command = new SqlCommand("insert into Category values('" + Categary_details.CategaryID+ "')", _connection))
+                {
+                    if (_connection.State == System.Data.ConnectionState.Closed)
+                        _connection.Open();
 
+                    _command.ExecuteNonQuery();
+
+                    insert = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new SutaException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return insert;
+        }
 
         public bool productsBuy(products _product)
         {
@@ -287,6 +314,37 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
+        //
+        public IEnumerable<Category> CategoryData()
+        {
+            List<Category> _GetSuta = new List<Category>();
+
+            try
+            {
+                using (_command = new SqlCommand("select  * from catagory  ", _connection))
+                {
+                    if (_connection.State == System.Data.ConnectionState.Closed)
+                        _connection.Open();
+
+                    SqlDataReader reader = _command.ExecuteReader();
+
+                    while (reader?.Read() ?? false)
+                        _GetSuta.Add(new Category() { CatagoryName = reader.GetString(1), Catagoryimage = reader.GetString(2) });
+                }
+            }
+            catch (Exception e1)
+            {
+                throw new SutaException(e1.Message);
+            }
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return _GetSuta;
+        }
+
 
         public IEnumerable<products> ProductIdFound(int Id)
         {
@@ -318,13 +376,39 @@ namespace SutawebAPI_Repository
             return _GetSuta;
         }
 
-        public IEnumerable<products> Category(int CategaryID)
+        public bool CategoryAdd(Category Category_Details)
         {
-            List<products> _GetSuta = new List<products>();
+            bool insert = false;
+            try
+            {
+                using (_command = new SqlCommand("insert into catagory values('" + Category_Details.CatagoryName + "','" + Category_Details.Catagoryimage + "')", _connection))
+                {
+                    if (_connection.State == System.Data.ConnectionState.Closed)
+                        _connection.Open();
+
+                    _command.ExecuteNonQuery();
+
+                    insert = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new SutaException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return insert;
+        }
+
+        public IEnumerable<Category> categoryNameFound(string CatagoryName)
+        {
+            List<Category> _GetSuta = new List<Category>();
 
             try
             {
-                using (_command = new SqlCommand("select  * from Category where CategaryID ='" + CategaryID + "'   ", _connection))
+                using (_command = new SqlCommand("select  * from catagory where CatagoryName ='" + CatagoryName + "'  ", _connection))
                 {
                     if (_connection.State == System.Data.ConnectionState.Closed)
                         _connection.Open();
@@ -332,7 +416,7 @@ namespace SutawebAPI_Repository
                     SqlDataReader reader = _command.ExecuteReader();
 
                     while (reader?.Read() ?? false)
-                        _GetSuta.Add(new products() { ProductName = reader.GetString(1), OriginalPrice = reader.GetInt32(2), OfferPrice = reader.GetInt32(3), CategaryID = reader.GetInt32(4), Image = reader.GetString(5), Quantity = reader.GetInt32(6) });
+                        _GetSuta.Add(new Category() { CatagoryName = reader.GetString(1),Catagoryimage=reader.GetString(2) });
                 }
             }
             catch (Exception e1)
@@ -347,5 +431,65 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
+
+        //
+        public bool categoryUpdate(CaregaryUpdateClass updated)
+        {
+            bool update = false;
+            try
+            {
+                using (_command = new SqlCommand("update catagory set CatagoryName ='" + updated.CatagoryName + "' WHERE Id= '" + updated.id + "' ", _connection))
+                {
+                    if (_connection.State == System.Data.ConnectionState.Closed)
+                        _connection.Open();
+
+                    _command.ExecuteNonQuery();
+
+                    update = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new SutaException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return update;
+        }
+
+
+        //public IEnumerable<products> Category()
+        //{
+        //    List<products> _GetSuta = new List<products>();
+
+        //    try
+        //    {
+        //        using (_command = new SqlCommand("select * from Category full outer join products on products.CategaryID = Category.CategaryID ", _connection))
+        //        {
+        //            if (_connection.State == System.Data.ConnectionState.Closed)
+        //                    _connection.Open();
+
+        //        SqlDataReader reader = _command.ExecuteReader();
+
+        //        while (reader?.Read() ?? false)
+        //            _GetSuta.Add(new products() { ProductName = reader.GetString(2), OriginalPrice = reader.GetInt32(3), OfferPrice = reader.GetInt32(4), CategaryID = reader.GetInt32(5), Image = reader.GetString(6), Quantity = reader.GetInt32(7) });
+        //    }
+        //    }
+        //    catch (Exception e1)
+        //    {
+        //        throw new SutaException(e1.Message);
+        //    }
+        //    finally
+        //    {
+        //        if (_connection.State == System.Data.ConnectionState.Open)
+        //            _connection.Close();
+        //    }
+
+        //    return _GetSuta;
+        //}
+
+
     } 
 }

@@ -100,7 +100,11 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
             
         }
-
+        //[HttpPut, Route("api/Category")]
+        //public IEnumerable<products> Category()
+        //{
+        //    return _sutaService.Category();
+        //}
 
 
 
@@ -132,11 +136,50 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             {
                 return false;
             }
-
-            
+        }
+        [HttpGet, Route("api/CategoryData")]
+        public IEnumerable<Category> CategoryData()
+        {
+            return _sutaService.CategoryData();
         }
 
-        
+
+        [HttpPut, Route("api/categoryAdd")]
+
+        public bool CategoryAdd(Category EnterValidData)
+        {
+            if (_sutaService.CategoryAdd(EnterValidData))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [HttpGet, Route("api/Category/catogoryIdFound")]
+        public IEnumerable<Category> categoryNameFound(string CatagoryName)
+        {
+            return _sutaService.categoryNameFound(CatagoryName);
+        }
+        [HttpPatch, Route("api/categoryUpdate")]
+
+        public bool categoryUpdate(CaregaryUpdateClass updated)
+        {
+            if (_sutaService.categoryUpdate(updated))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
 
     }
 }

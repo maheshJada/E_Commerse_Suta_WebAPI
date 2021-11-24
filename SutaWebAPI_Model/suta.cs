@@ -36,5 +36,16 @@ namespace SutaWebAPI_Model
         public string Password { get; set; }
         
     }
+    public class Category
+    {
+        public string CatagoryName { get; set; }
+        public string Catagoryimage { get; set; }
+    }
+    public class CaregaryUpdateClass
+    {
+        public int id { get; set; }
+        public string CatagoryName { get; set; }
+    }
+
 
 }
