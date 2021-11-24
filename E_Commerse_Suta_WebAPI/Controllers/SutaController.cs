@@ -87,14 +87,18 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
         [HttpPut, Route("api/ProductAdd")]
 
-        public IEnumerable<Suta> productsBuy(products EnterValidData)
+        public bool productsBuy(products EnterValidData)
         {
             if (_sutaService.productsBuy(EnterValidData))
             {
-                return _sutaService.GetSutaDetails();
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
-            return Enumerable.Empty<Suta>();
+            
         }
 
 
@@ -118,22 +122,21 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         }
 
         [HttpDelete, Route("api/ProductsDelete/:Id")]
-        public IEnumerable<Suta> DeleteProductBuy(int Id)
+        public bool DeleteProductBuy(int Id)
         {
             if (_sutaService.DeleteProductBuy(Id))
             {
-                return _sutaService.GetSutaDetails();
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
-            return Enumerable.Empty<Suta>();
+            
         }
 
-        [HttpPut, Route("api/category")]
-        public IEnumerable<products> Category(int CategaryID)
-        {
-            return _sutaService.Category(CategaryID);
-        }
-
+        
 
     }
 }
