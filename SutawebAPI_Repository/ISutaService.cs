@@ -10,7 +10,7 @@ namespace SutawebAPI_Repository
 {
     public interface ISutaService
     {
-        //It Will store the data in in suta 
+
         /// <summary>
         /// here i will perform the operations  
         /// 1.getsutadetails() will be registration
@@ -20,7 +20,10 @@ namespace SutawebAPI_Repository
         /// 5.if we you want add the products to the product we use productsBuy()
         /// 6. productdeatils()  it will display whose product Original Price>offerprice
         /// 7.ProductIDGreterZero() will returns the who is greterthan id is zero it will diplay
-        /// 8.it will display particular product based on productid
+        /// 8.ProductIdFound() it will display particular product based on productid
+        /// 9.CategoryData() it will display whole data in ihe category table
+        /// 10.categoryNameFound() it will display particular category based on CategoryName
+        /// 11.categoryUpdate() if you want to change the name by using id we use this method
         /// </summary>
         /// <returns></returns> 
         IEnumerable<Suta> GetSutaDetails();
@@ -32,6 +35,7 @@ namespace SutawebAPI_Repository
         // bool ProductUpdate(products Product_details);
         IEnumerable<products> ProductIDGreterZero();
         IEnumerable<products> ProductIdFound(int Id);
+        bool DeleteProductBuy(int Id);
         // IEnumerable<products> Category();
         // bool CatagoryInsert(products Categary_details);
 
@@ -41,6 +45,6 @@ namespace SutawebAPI_Repository
         bool categoryUpdate(CaregaryUpdateClass updated);
 
 
-        bool DeleteProductBuy(int Id);  
+       
     }
 }

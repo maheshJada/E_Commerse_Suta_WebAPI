@@ -46,6 +46,4 @@ namespace SutaWebAPI_Model
         public int id { get; set; }
         public string CatagoryName { get; set; }
     }
-
-
 }

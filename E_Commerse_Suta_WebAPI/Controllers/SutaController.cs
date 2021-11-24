@@ -15,19 +15,12 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         {
             _sutaService = sutaService;
         }
-
-       // [HttpGet, Route("api/sutaData/GetSutaDetails")]
-
-
         public IEnumerable<Suta> GetSutaDetails()
         {
             return _sutaService.GetSutaDetails();
         }
        
-
-
         [HttpPost, Route("api/signup")]
-
         public IEnumerable<Suta> InsertCustomerDetails(Suta inserteddata)
         {
             if (_sutaService.InsertCustomerDetails(inserteddata))
@@ -37,10 +30,6 @@ namespace E_Commerse_Suta_WebAPI.Controllers
 
             return Enumerable.Empty<Suta>();
         }
-
-
-        //[HttpGet,Route("api/sutadata/LoginCustomer")]
-        //public bool Login()
 
 
         [HttpPost, Route("api/login")]
@@ -57,7 +46,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             }
 
         }
-        //-----forgot
+       
 
         [HttpPatch, Route("api/ForgotPassword")]
 
@@ -73,11 +62,13 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             }
 
         }
+
         [HttpGet, Route("api/Products")]
         public IEnumerable<products> ProductIDGreterZero()
         {
             return _sutaService.ProductIDGreterZero();
         }
+
 
         [HttpGet, Route("api/Products/ProductIdFound")]
         public IEnumerable<products> ProductIdFound(int ID)
@@ -85,8 +76,8 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             return _sutaService.ProductIdFound(ID);
         }
 
-        [HttpPut, Route("api/ProductAdd")]
 
+        [HttpPut, Route("api/ProductAdd")]
         public bool productsBuy(products EnterValidData)
         {
             if (_sutaService.productsBuy(EnterValidData))
@@ -96,34 +87,15 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             else
             {
                 return false;
-            }
-
-            
+            } 
         }
-        //[HttpPut, Route("api/Category")]
-        //public IEnumerable<products> Category()
-        //{
-        //    return _sutaService.Category();
-        //}
-
-
-
-
-        //[HttpGet, Route("api/student/UpdateToNextClass/{TokenNo}")]
-        //public IEnumerable<Suta> UpdateToNextClass(int TokenNo)
-        //{
-        //    if (_sutaService.UpdateStudentToNextClass(TokenNo))
-        //    {
-        //        return _sutaService.GetStudents().Where(s => s.TokenNo == TokenNo);
-        //    }
-
-        //    return Enumerable.Empty<Suta>();
-        //}
+       
         [HttpPost, Route("api/ProductComapare/:id")]
         public IEnumerable<products> GetProducts(int ID)
         {
             return _sutaService.ProductDeatils(ID);
         }
+
 
         [HttpDelete, Route("api/ProductsDelete/:Id")]
         public bool DeleteProductBuy(int Id)
@@ -137,15 +109,14 @@ namespace E_Commerse_Suta_WebAPI.Controllers
                 return false;
             }
         }
+
         [HttpGet, Route("api/CategoryData")]
         public IEnumerable<Category> CategoryData()
         {
             return _sutaService.CategoryData();
         }
 
-
         [HttpPut, Route("api/categoryAdd")]
-
         public bool CategoryAdd(Category EnterValidData)
         {
             if (_sutaService.CategoryAdd(EnterValidData))
@@ -158,13 +129,14 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             }
         }
 
+
         [HttpGet, Route("api/Category/catogoryIdFound")]
         public IEnumerable<Category> categoryNameFound(string CatagoryName)
         {
             return _sutaService.categoryNameFound(CatagoryName);
         }
-        [HttpPatch, Route("api/categoryUpdate")]
 
+        [HttpPatch, Route("api/categoryUpdate")]
         public bool categoryUpdate(CaregaryUpdateClass updated)
         {
             if (_sutaService.categoryUpdate(updated))
@@ -177,9 +149,6 @@ namespace E_Commerse_Suta_WebAPI.Controllers
             }
 
         }
-
-
-
 
     }
 }
