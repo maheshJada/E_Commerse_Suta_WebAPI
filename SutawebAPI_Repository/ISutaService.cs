@@ -25,7 +25,6 @@ namespace SutawebAPI_Repository
         /// 10.categoryNameFound() it will display particular category based on CategoryName
         /// 11.categoryUpdate() if you want to change the name by using id we use this method
         /// </summary>
-        /// <returns></returns> 
         IEnumerable<Suta> GetSutaDetails();
         bool InsertCustomerDetails(Suta Cust_deatils);
         bool LoginCustomer(string Name, string Password);
@@ -37,14 +36,10 @@ namespace SutawebAPI_Repository
         IEnumerable<products> ProductIdFound(int Id);
         bool DeleteProductBuy(int Id);
         // IEnumerable<products> Category();
-        // bool CatagoryInsert(products Categary_details);
 
         IEnumerable<Category> CategoryData();
         bool CategoryAdd(Category Category_Details);
         IEnumerable<Category> categoryNameFound(string CatagoryName);
-        bool categoryUpdate(CaregaryUpdateClass updated);
-
-
-       
+        bool categoryUpdate(CaregaryUpdateClass updated); 
     }
 }
