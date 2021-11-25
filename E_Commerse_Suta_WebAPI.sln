@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerse_Suta_WebAPI", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SutawebAPI_Repository", "SutawebAPI_Repository\SutawebAPI_Repository.csproj", "{3D91BFBF-83FF-4E4C-BC09-E214CC4A171D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SutaWebAPI_Common", "SutaWebAPI_Common\SutaWebAPI_Common.csproj", "{5D8A56AE-2796-4A1F-BE55-4199909B5EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SutaWebAPI_DataBaseConnection", "SutaWebAPI_Common\SutaWebAPI_DataBaseConnection.csproj", "{5D8A56AE-2796-4A1F-BE55-4199909B5EE5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SutaWebAPI_Model", "SutaWebAPI_Model\SutaWebAPI_Model.csproj", "{896E9536-EB0A-4F2F-AE39-BC0A4A74218B}"
 EndProject

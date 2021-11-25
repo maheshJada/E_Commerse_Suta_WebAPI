@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_Common.csproj" />
+    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_DataBaseConnection.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_Common.csproj" />
+    <ProjectReference Include="..\SutaWebAPI_Common\SutaWebAPI_DataBaseConnection.csproj" />
     <ProjectReference Include="..\SutaWebAPI_Model\SutaWebAPI_Model.csproj" />
   </ItemGroup>
 
