@@ -15,12 +15,9 @@ namespace SutaWebAPI_Model
         public string Address { get; set; }
         public int Pincode { get; set; }
         public string state { get; set; }
-
-
     }
     public class products
     {
-        //public int Id { get; set; }
         public string ProductName { get; set; }
         public int OriginalPrice { get; set; }
         public int OfferPrice { get; set; }
@@ -31,10 +28,8 @@ namespace SutaWebAPI_Model
 
     public class ForgotClass
     {
-
         public string Email { get; set; }
         public string Password { get; set; }
-        
     }
     public class Category
     {

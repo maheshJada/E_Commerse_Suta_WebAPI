@@ -19,6 +19,12 @@ namespace SutawebAPI_Repository
         {
             _connection = new SqlConnection(ApplicationContext.ConnectionString);
         }
+
+        /// <summary>
+        ///     This Method is for insert the details for registration
+        /// </summary>
+        /// <param name="Cust_deatils"></param>
+        /// <returns>inserted data</returns>
         public bool InsertCustomerDetails(Suta Cust_deatils)
         {
             bool insert = false;
@@ -44,7 +50,13 @@ namespace SutawebAPI_Repository
             }
             return insert;
         }
-
+      
+        /// <summary>
+        /// This Method is used for login 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Password"></param>
+        /// <returns>It will open the website</returns>
         public bool LoginCustomer(string Name, string Password)
         {
             bool IsLogin = false;
@@ -76,6 +88,12 @@ namespace SutawebAPI_Repository
             return IsLogin;
 
         }
+       
+        /// <summary>
+        /// This Method is for chenge the password if we forgot the password
+        /// </summary>
+        /// <param name="forgotClass"></param>
+        /// <returns>It will change the password</returns>
         public bool ForgotPassword(ForgotClass forgotClass)
         {
             bool update = false;
@@ -101,7 +119,11 @@ namespace SutawebAPI_Repository
             }
             return update;
         }
-
+      
+        /// <summary>
+        /// This Method is used to display all products
+        /// </summary>
+        /// <returns>It will display all the product</returns>
         public IEnumerable<products> ProductIDGreterZero()
         {
             List<products> _GetSuta = new List<products>();
@@ -132,6 +154,11 @@ namespace SutawebAPI_Repository
             return _GetSuta;
         }
 
+        /// <summary>
+        /// This Metod is for check the product based on productid
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>It will find the particular product</returns>
         public IEnumerable<products> ProductIdFound(int Id)
         {
             List<products> _GetSuta = new List<products>();
@@ -161,7 +188,12 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
-
+      
+        /// <summary>
+        /// This Method is used for insert the product to products table
+        /// </summary>
+        /// <param name="_product"></param>
+        /// <returns>it will display what we are inserted products</returns>
         public bool productsBuy(products _product)
         {
             bool insert = false;
@@ -188,6 +220,11 @@ namespace SutawebAPI_Repository
             return insert;
         }
 
+        /// <summary>
+        /// This Method is for insert the details for registration
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>It will returns the Register candidate deatils</returns>
         public IEnumerable<products> ProductDeatils(int Id)
         {
             List<products> _GetSuta = new List<products>();
@@ -217,7 +254,11 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
-
+        /// <summary>
+        /// This Method is used for delete the product
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>Delete the product based on id</returns>
         public bool DeleteProductBuy(int Id)
         {
             bool delete = false;
@@ -244,6 +285,10 @@ namespace SutawebAPI_Repository
             return delete;
         }
 
+        /// <summary>
+        /// This Metod is for display the CategoryData
+        /// </summary>
+        /// <returns>It will return the product Details</returns>
         public IEnumerable<Category> CategoryData()
         {
             List<Category> _GetSuta = new List<Category>();
@@ -273,7 +318,12 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
-
+        
+        /// <summary>
+        ///This method is used for add the Category to the database
+        /// </summary>
+        /// <param name="Category_Details"></param>
+        /// <returns>It will returns the Added category data</returns>
         public bool CategoryAdd(Category Category_Details)
         {
             bool insert = false;
@@ -300,6 +350,11 @@ namespace SutawebAPI_Repository
             return insert;
         }
 
+        /// <summary>
+        /// This method is used for check the CategoryName
+        /// </summary>
+        /// <param name="CatagoryName"></param>
+        /// <returns>It will returns CatagoryName based on id </returns>
 
         public IEnumerable<Category> categoryNameFound(string CatagoryName)
         {
@@ -331,7 +386,11 @@ namespace SutawebAPI_Repository
             return _GetSuta;
         }
 
-
+        /// <summary>
+        /// This method is used for update the Category details
+        /// </summary>
+        /// <param name="updated"></param>
+        /// <returns>It will return updated data</returns>
         public bool categoryUpdate(CaregaryUpdateClass updated)
         {
             bool update = false;
@@ -358,8 +417,11 @@ namespace SutawebAPI_Repository
             return update;
         }
 
-
-
+        /// <summary>
+        /// This method is used for insert the Category details
+        /// </summary>
+        /// <param name="Categary_details"></param>
+        /// <returns>It will return insertd Category data</returns>
         public bool CatagoryInsert(products Categary_details)
         {
             bool insert = false;
@@ -386,6 +448,10 @@ namespace SutawebAPI_Repository
             return insert;
         }
 
+        /// <summary>
+        /// This method is used for display the users table data
+        /// </summary>
+        /// <returns>It will returns the users data</returns>
         public IEnumerable<Suta> GetSutaDetails()
         {
             List<Suta> _GetSuta = new List<Suta>();
