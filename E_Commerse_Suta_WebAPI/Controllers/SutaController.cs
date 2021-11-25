@@ -15,6 +15,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         {
             _sutaService = sutaService;
         }
+        [HttpGet,Route("api/Suta/GetSutaDetails")]
         public IEnumerable<Suta> GetSutaDetails()
         {
             return _sutaService.GetSutaDetails();
