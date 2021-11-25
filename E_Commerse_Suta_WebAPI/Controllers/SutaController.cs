@@ -110,6 +110,7 @@ namespace E_Commerse_Suta_WebAPI.Controllers
                 return false;
             }
         }
+
         //This is the End Point is for display the category data
         [HttpGet, Route("api/CategoryData")]
         public IEnumerable<Category> CategoryData()

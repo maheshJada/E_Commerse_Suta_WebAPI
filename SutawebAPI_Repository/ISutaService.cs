@@ -36,8 +36,9 @@ namespace SutawebAPI_Repository
         IEnumerable<products> ProductIdFound(int Id);
         bool DeleteProductBuy(int Id);
         // IEnumerable<products> Category();
-
         IEnumerable<Category> CategoryData();
+
+        //IEnumerable<Category> CategoryData();
         bool CategoryAdd(Category Category_Details);
         IEnumerable<Category> categoryNameFound(string CatagoryName);
         bool categoryUpdate(CaregaryUpdateClass updated); 

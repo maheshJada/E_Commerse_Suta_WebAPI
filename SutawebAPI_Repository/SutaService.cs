@@ -285,10 +285,10 @@ namespace SutawebAPI_Repository
             return delete;
         }
 
-        /// <summary>
-        /// This Metod is for display the CategoryData
-        /// </summary>
-        /// <returns>It will return the product Details</returns>
+        //<summary>
+        // This Metod is for display the CategoryData
+        // </summary>
+        // <returns>It will return the product Details</returns>
         public IEnumerable<Category> CategoryData()
         {
             List<Category> _GetSuta = new List<Category>();
@@ -318,7 +318,9 @@ namespace SutawebAPI_Repository
 
             return _GetSuta;
         }
-        
+
+
+
         /// <summary>
         ///This method is used for add the Category to the database
         /// </summary>
