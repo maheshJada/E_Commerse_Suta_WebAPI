@@ -134,9 +134,9 @@ namespace E_Commerse_Suta_WebAPI.Controllers
         //This is the End Point is for check the category based on category Name
 
         [HttpGet, Route("api/Category/catogoryIdFound")]
-        public IEnumerable<Category> categoryNameFound(string CatagoryName)
+        public IEnumerable<Category> categoryNameFound(int Id)
         {
-            return _sutaService.categoryNameFound(CatagoryName);
+            return _sutaService.categoryNameFound(Id);
         }
         //This is the End Point is for update  the category 
         [HttpPatch, Route("api/categoryUpdate")]

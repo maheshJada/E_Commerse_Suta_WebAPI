@@ -40,7 +40,7 @@ namespace SutawebAPI_Repository
 
         //IEnumerable<Category> CategoryData();
         bool CategoryAdd(Category Category_Details);
-        IEnumerable<Category> categoryNameFound(string CatagoryName);
+        IEnumerable<Category> categoryNameFound(int Id);
         bool categoryUpdate(CaregaryUpdateClass updated); 
     }
 }

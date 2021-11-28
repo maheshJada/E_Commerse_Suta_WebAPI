@@ -33,7 +33,12 @@ namespace E_Commerse_Suta_WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "E_Commerse_Suta_WebAPI", Version = "v1" });
             });
             services.AddTransient<ISutaService, SutaService >();
-          
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+
+            }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +52,8 @@ namespace E_Commerse_Suta_WebAPI
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

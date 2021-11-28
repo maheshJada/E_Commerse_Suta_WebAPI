@@ -33,6 +33,7 @@ namespace SutaWebAPI_Model
     }
     public class Category
     {
+        public int Id { get; set; }
         public string CatagoryName { get; set; }
         public string Catagoryimage { get; set; }
     }

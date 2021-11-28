@@ -303,7 +303,7 @@ namespace SutawebAPI_Repository
                     SqlDataReader reader = _command.ExecuteReader();
 
                     while (reader?.Read() ?? false)
-                        _GetSuta.Add(new Category() { CatagoryName = reader.GetString(1), Catagoryimage = reader.GetString(2) });
+                        _GetSuta.Add(new Category() { Id=reader.GetInt32(0),CatagoryName = reader.GetString(1), Catagoryimage = reader.GetString(2) });
                 }
             }
             catch (Exception e1)
@@ -358,13 +358,13 @@ namespace SutawebAPI_Repository
         /// <param name="CatagoryName"></param>
         /// <returns>It will returns CatagoryName based on id </returns>
 
-        public IEnumerable<Category> categoryNameFound(string CatagoryName)
+        public IEnumerable<Category> categoryNameFound(int Id)
         {
             List<Category> _GetSuta = new List<Category>();
 
             try
             {
-                using (_command = new SqlCommand("select  * from catagory where CatagoryName ='" + CatagoryName + "'  ", _connection))
+                using (_command = new SqlCommand("select  * from catagory where Id ='" + Id + "'  ", _connection))
                 {
                     if (_connection.State == System.Data.ConnectionState.Closed)
                         _connection.Open();
@@ -372,7 +372,7 @@ namespace SutawebAPI_Repository
                     SqlDataReader reader = _command.ExecuteReader();
 
                     while (reader?.Read() ?? false)
-                        _GetSuta.Add(new Category() { CatagoryName = reader.GetString(1), Catagoryimage = reader.GetString(2) });
+                        _GetSuta.Add(new Category() {Id=reader.GetInt32(0), CatagoryName = reader.GetString(1), Catagoryimage = reader.GetString(2) });
                 }
             }
             catch (Exception e1)
